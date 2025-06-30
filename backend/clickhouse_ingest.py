@@ -1,5 +1,6 @@
 import pandas as pd
 from clickhouse_connect import get_client
+import os
 
 # Load CSV
 df = pd.read_csv('data/transactions_50k.csv')
@@ -14,7 +15,13 @@ print(df.dtypes)
 print(type(df['timestamp'].iloc[0]))
 
 # Connect to ClickHouse
-client = get_client(host='localhost', port=8123)
+client = get_client(
+    host=os.getenv("CLICKHOUSE_HOST", "localhost"),
+    port=int(os.getenv("CLICKHOUSE_PORT", "8123")),
+    username=os.getenv("CLICKHOUSE_USER", "default"),
+    password=os.getenv("CLICKHOUSE_PASSWORD", ""),
+    secure=os.getenv("CLICKHOUSE_SECURE", "false").lower() == "true"
+)
 
 # Drop + create table
 client.command("DROP TABLE IF EXISTS transactions")
