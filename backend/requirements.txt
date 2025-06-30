@@ -1,0 +1,12 @@
+clickhouse-connect
+pandas
+openai
+neo4j
+tqdm
+streamlit
+pyvis
+python-dotenv
+requests
+numpy
+matplotlib
+plotly

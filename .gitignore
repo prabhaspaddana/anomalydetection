@@ -1,0 +1,6 @@
+# .gitignore
+venv/
+*.pyc
+.env
+graph.html
+backend/__pycache__/
