@@ -1,5 +1,7 @@
 # 🔍 AI-Powered Anomaly Detection Using ClickHouse & Neo4j
 
+[![Streamlit App](https://img.shields.io/badge/Live%20Demo-Streamlit-brightgreen?logo=streamlit)](https://anomalydetection-4ftcgcoyodgrnqclgh5pjb.streamlit.app/)
+
 A professional, production-ready anomaly detection system leveraging ClickHouse (for fast analytics), Neo4j (for relationship-aware reasoning), and AI models for intelligent anomaly explanations. All analytics and anomaly logic are robustly handled in Python using pandas, ensuring maximum compatibility, transparency, and performance.
 
 ## 🎯 Project Overview
@@ -17,8 +19,7 @@ This project implements a state-of-the-art anomaly detection system for financia
 
 ## 🚀 Live Demo
 
-- **Dashboard**: [Deploy to Streamlit Cloud](https://share.streamlit.io/your-username/anomaly-detection/main/app.py)
-- **Backend API**: [Deploy to Render/Railway](https://your-backend-url.com)
+👉 [Click here to try the app on Streamlit Cloud!](https://anomalydetection-4ftcgcoyodgrnqclgh5pjb.streamlit.app/)
 
 ## ✨ Features
 
