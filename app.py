@@ -8,6 +8,7 @@ from backend.graphrag_reasoner import explain_transaction_ids
 import matplotlib.pyplot as plt
 import altair as alt
 import plotly.express as px
+import os
 
 st.set_page_config(page_title="Anomaly Detection Dashboard", page_icon="🕵️‍♂️", layout="wide")
 
@@ -31,7 +32,14 @@ def load_transaction_data():
 # ---
 # Helper functions for anomaly detection using SQL expressions (simulate what was in clickhouse_udfs.py)
 from clickhouse_connect import get_client
-client = get_client(host='localhost', port=8123)
+
+client = get_client(
+    host=os.getenv("CLICKHOUSE_HOST", "localhost"),
+    port=int(os.getenv("CLICKHOUSE_PORT", "8123")),
+    username=os.getenv("CLICKHOUSE_USER", "default"),
+    password=os.getenv("CLICKHOUSE_PASSWORD", ""),
+    secure=os.getenv("CLICKHOUSE_SECURE", "false").lower() == "true"
+)
 
 def get_anomalous_transactions():
     # Fetch a sample of recent transactions (e.g., last 10,000)
